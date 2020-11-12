@@ -269,33 +269,86 @@ public class BbddControllers {
 				return id;
 			}
 			
+           //Select id_color
 			
+			public int selectBbddIDColor(String color) {
+				int id = 0;
+				try {
+					Connection conexion= conexionBbdd();
+					Statement consulta = conexion.createStatement();
+					ResultSet registro = consulta.executeQuery("select id_color from color where color='"+ color +"'");
+					while (registro.next()) {
+						id = (registro.getInt("id_color"));
+					}
+					conexion.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return id;
+			}
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			// Update Colores
-			public void escribirBBDDColor(String color) {
+			// update Colores
+			public void updateBBDDColor(int id_color, String color) {
 				try {
 					Connection conexion= conexionBbdd();
 					if (conexion != null) {
 						Statement consulta = conexion.createStatement();
-						consulta.executeUpdate("insert into color(color) values('" + color + "')");
+						
+						//UPDATE <nombre de la tabla> SET <columnas a modificar> WHERE <condicion>
+						consulta.executeUpdate("update color set color= '"+color+"' where id_color=" + id_color );
 					}
 					conexion.close();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 			}
+			
+			//Select id_marca
+			
+			public int selectBbddIdmarca(String color) {
+				int id = 0;
+				try {
+					Connection conexion= conexionBbdd();
+					Statement consulta = conexion.createStatement();
+					ResultSet registro = consulta.executeQuery("select id_color from color where color='"+ color +"'");
+					while (registro.next()) {
+						id = (registro.getInt("id_color"));
+					}
+					conexion.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return id;
+			}
+			
+			// update marcas
+			public void updateBBDDColor(int id_color, String color) {
+				try {
+					Connection conexion= conexionBbdd();
+					if (conexion != null) {
+						Statement consulta = conexion.createStatement();
+						
+						//UPDATE <nombre de la tabla> SET <columnas a modificar> WHERE <condicion>
+						consulta.executeUpdate("update color set color= '"+color+"' where id_color=" + id_color );
+					}
+					conexion.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+	
 
 			// Insert Marcas
 			public void escribirBBDDMarca(String marca, String modelo, int id_color) {

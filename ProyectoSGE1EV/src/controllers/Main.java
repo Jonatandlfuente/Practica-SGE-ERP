@@ -19,7 +19,7 @@ public class Main {
 		String pass = "";
 		
 		Login vntLogin= new Login();
-		vntLogin.cargaVntLogin(vntLogin);
+		//vntLogin.cargaVntLogin(vntLogin);
 
 		// user = "pedroruizlamas";
 		// pass = "3458897";
@@ -46,5 +46,6 @@ public class Main {
 //		controlador.escribirBBDDEscandallos("i5 8gb gforcegtx 660ti");
 //		controlador.escribirBBDDColecciones(6, 8, 1);
 //		controlador.escribirBBDDFabricacion(3, 2, 60.5f, 1);
+		//controlador.updateBBDDColor(controlador.selectBbddIDColor("verde"),"rojo");
 	}
 }
