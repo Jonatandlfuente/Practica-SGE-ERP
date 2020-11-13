@@ -61,7 +61,7 @@ public class Principal extends JFrame{
 				ml.setVisible(true);
 			}
 		});
-		btnProveedores.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoProveedores.png"));
+		btnProveedores.setIcon(new ImageIcon("img\\iconoProveedores.png"));
 		btnProveedores.setBounds(168, 159, 206, 171);
 		panel.add(btnProveedores);
 		
@@ -72,7 +72,7 @@ public class Principal extends JFrame{
 				ml.setVisible(true);
 			}
 		});
-		btnVentas.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoVentas.png"));
+		btnVentas.setIcon(new ImageIcon("img\\iconoVentas.png"));
 		btnVentas.setBounds(453, 159, 206, 171);
 		panel.add(btnVentas);
 		
@@ -83,7 +83,7 @@ public class Principal extends JFrame{
 				ml.setVisible(true);
 			}
 		});
-		btnProductos.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoProductos.png"));
+		btnProductos.setIcon(new ImageIcon("img\\iconoProductos.png"));
 		btnProductos.setBounds(737, 159, 206, 171);
 		panel.add(btnProductos);
 		
@@ -94,7 +94,7 @@ public class Principal extends JFrame{
 				ml.setVisible(true);
 			}
 		});
-		btnClientes.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoClinetes.png"));
+		btnClientes.setIcon(new ImageIcon("img\\iconoClinetes.png"));
 		btnClientes.setBounds(314, 399, 206, 171);
 		panel.add(btnClientes);
 		
@@ -105,7 +105,7 @@ public class Principal extends JFrame{
 				ml.setVisible(true);
 			}
 		});
-		btnCompras.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoCompras.png"));
+		btnCompras.setIcon(new ImageIcon("img\\iconoCompras.png"));
 		btnCompras.setBounds(625, 399, 206, 171);
 		panel.add(btnCompras);
 		

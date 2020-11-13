@@ -69,7 +69,7 @@ public class Login extends JFrame {
 
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setIcon(
-				new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\logo_preview_rev_1.png"));
+				new ImageIcon("img\\logo_preview_rev_1.png"));
 		lblLogo.setBounds(403, 86, 200, 185);
 		pLogin.add(lblLogo);
 
@@ -106,13 +106,13 @@ public class Login extends JFrame {
 		pLogin.add(btnIniciarSesin);
 		
 		JLabel lblUser = new JLabel("");
-		lblUser.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\usuario.png"));
+		lblUser.setIcon(new ImageIcon("img\\usuario.png"));
 		lblUser.setForeground(Color.WHITE);
 		lblUser.setBounds(362, 317, 16, 37);
 		pLogin.add(lblUser);
 		
 		JLabel lblPass = new JLabel("");
-		lblPass.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\contrasena.png"));
+		lblPass.setIcon(new ImageIcon("img\\contrasena.png"));
 		lblPass.setForeground(Color.WHITE);
 		lblPass.setBounds(357, 367, 32, 47);
 		pLogin.add(lblPass);

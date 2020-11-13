@@ -31,7 +31,7 @@ public class PanelGeneral extends JPanel {
 		panel.add(lblAnadir);
 		
 		JButton btnAnadir = new JButton("");
-		btnAnadir.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\iconoA\u00F1adir.png"));
+		btnAnadir.setIcon(new ImageIcon("img\\iconoA\u00F1adir.png"));
 		btnAnadir.setBounds(93, 182, 191, 191);
 		panel.add(btnAnadir);
 		
@@ -40,7 +40,7 @@ public class PanelGeneral extends JPanel {
 		panel.add(lblModificar);
 		
 		JButton btnModificar = new JButton("");
-		btnModificar.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\iconoModificar.png"));
+		btnModificar.setIcon(new ImageIcon("img\\iconoModificar.png"));
 		btnModificar.setBounds(445, 182, 191, 191);
 		panel.add(btnModificar);
 		
@@ -49,7 +49,7 @@ public class PanelGeneral extends JPanel {
 		panel.add(lblConsultar);
 		
 		JButton btnConsultar = new JButton("");
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\iconoConsultar.png"));
+		btnConsultar.setIcon(new ImageIcon("img\\iconoConsultar.png"));
 		btnConsultar.setBounds(93, 439, 191, 191);
 		panel.add(btnConsultar);
 		
@@ -58,7 +58,7 @@ public class PanelGeneral extends JPanel {
 		panel.add(lblBorrar);
 		
 		JButton btnBorrar = new JButton("");
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\loren\\git\\PracticaSGE\\ProyectoSGE1EV\\img\\iconoBorrar.png"));
+		btnBorrar.setIcon(new ImageIcon("img\\iconoBorrar.png"));
 		btnBorrar.setBounds(445, 439, 191, 191);
 		panel.add(btnBorrar);
 		

@@ -22,6 +22,7 @@ public class MenuLateral extends JFrame {
 	private JPanel contentPane;
 	//private AnadirProveedor aP;
 	private PanelGeneral pg = new PanelGeneral();
+	private JPanel panel;
 
 	/**
 	 * Create the frame.
@@ -39,7 +40,7 @@ public class MenuLateral extends JFrame {
 		pMenu.setLayout(null);
 		
 		JLabel lblLogo = new JLabel("");
-		lblLogo.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\SgeErp\\img\\logo_preview_rev_1.png"));
+		lblLogo.setIcon(new ImageIcon("img\\logo_preview_rev_1.png"));
 		lblLogo.setBounds(22, 0, 190, 193);
 		pMenu.add(lblLogo);
 		
@@ -47,7 +48,10 @@ public class MenuLateral extends JFrame {
 		btnProveedores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				nuevoPanel(pg);
+				getContentPane().remove(panel);
+				getContentPane().add(pg);
+				repaint();
+				pg.setVisible(true);
 			}
 		});
 		btnProveedores.setSelected(true);
@@ -76,12 +80,12 @@ public class MenuLateral extends JFrame {
 		btnCompras.setBounds(0, 492, 281, 44);
 		pMenu.add(btnCompras);
 		
+		panel = new JPanel();
+		panel.setBackground(Color.YELLOW);
+		panel.setBounds(282, 0, 773, 643);
+		getContentPane().add(panel);
+		panel.setLayout(null);
+		
 	}
 
-	public void nuevoPanel(JPanel actual){
-		contentPane.removeAll();
-		contentPane.add(actual);
-		contentPane.revalidate();
-		contentPane.repaint();
-	}
 }
