@@ -18,7 +18,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AñadirProducto extends JPanel {
+public class AnadirProducto extends JPanel {
 	private JTextField txtNombre;
 	private JTextField txtDescripcion;
 	private JTextField txtStock;
@@ -27,7 +27,7 @@ public class AñadirProducto extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AñadirProducto() {
+	public AnadirProducto() {
 		setLayout(null);
 		
 		JPanel pProducto = new JPanel();

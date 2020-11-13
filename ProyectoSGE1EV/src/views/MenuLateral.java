@@ -21,7 +21,7 @@ public class MenuLateral extends JFrame {
 
 	private JPanel contentPane;
 	//private AnadirProveedor aP;
-	private PanelGeneral pg;
+	private PanelGeneral pg = new PanelGeneral();
 
 	/**
 	 * Create the frame.
@@ -47,7 +47,6 @@ public class MenuLateral extends JFrame {
 		btnProveedores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				pg = new PanelGeneral();
 				nuevoPanel(pg);
 			}
 		});
@@ -82,7 +81,7 @@ public class MenuLateral extends JFrame {
 	public void nuevoPanel(JPanel actual){
 		contentPane.removeAll();
 		contentPane.add(actual);
-		contentPane.repaint();
 		contentPane.revalidate();
+		contentPane.repaint();
 	}
 }

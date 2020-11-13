@@ -7,7 +7,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class AñadirCliente extends JPanel {
+public class AnadirCliente extends JPanel {
 	private JTextField txtNombre;
 	private JTextField txtApellidos;
 	private JTextField txtDNI;
@@ -20,7 +20,7 @@ public class AñadirCliente extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AñadirCliente() {
+	public AnadirCliente() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();

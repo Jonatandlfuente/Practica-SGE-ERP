@@ -17,7 +17,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
-public class AñadirCompra extends JPanel {
+public class AnadirCompra extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
@@ -29,7 +29,7 @@ public class AñadirCompra extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AñadirCompra() {
+	public AnadirCompra() {
 		setLayout(null);
 		
 		JPanel pCompra = new JPanel();

@@ -20,7 +20,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class AñadirVenta extends JPanel {
+public class AnadirVenta extends JPanel {
 
 	private JList lProductos;
 	private DefaultListModel modelo; 
@@ -30,7 +30,7 @@ public class AñadirVenta extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AñadirVenta() {
+	public AnadirVenta() {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
