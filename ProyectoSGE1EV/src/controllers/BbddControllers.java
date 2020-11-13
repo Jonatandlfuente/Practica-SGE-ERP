@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class BbddControllers {
 	
-	//Conexión BBDD
+	//Conexiï¿½n BBDD
 	public Connection conexionBbdd() {
 
 		Connection conexion = null;
@@ -21,7 +21,7 @@ public class BbddControllers {
 		}
 		return conexion;
 	}
-	
+	/*
 	// Insert Colores
 	public void escribirBBDDColor(String color) {
 		try {
@@ -234,7 +234,7 @@ public class BbddControllers {
 			}
 		}
 		
-		//Insert fabricación
+		//Insert fabricaciï¿½n
 		
 			public void escribirBBDDFabricacion(int idEscandallo, int idPersonal  , float tiempoFabricacion,int unidadesFabricacion) {
 				try {
@@ -485,7 +485,7 @@ public class BbddControllers {
 					}
 				}
 				
-				//Insert fabricación
+				//Insert fabricaciï¿½n
 				
 					public void escribirBBDDFabricacion(int idEscandallo, int idPersonal  , float tiempoFabricacion,int unidadesFabricacion) {
 						try {
@@ -501,6 +501,6 @@ public class BbddControllers {
 							e.printStackTrace();
 						}
 					}
-			
+			*/
 			
 }

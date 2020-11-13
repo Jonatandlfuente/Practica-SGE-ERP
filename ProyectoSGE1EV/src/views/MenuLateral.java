@@ -20,7 +20,8 @@ import java.awt.Font;
 public class MenuLateral extends JFrame {
 
 	private JPanel contentPane;
-	private AñadirProveedor aP;
+	//private AnadirProveedor aP;
+	private PanelGeneral pg;
 
 	/**
 	 * Create the frame.
@@ -46,7 +47,8 @@ public class MenuLateral extends JFrame {
 		btnProveedores.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
+				pg = new PanelGeneral();
+				nuevoPanel(pg);
 			}
 		});
 		btnProveedores.setSelected(true);
@@ -75,59 +77,12 @@ public class MenuLateral extends JFrame {
 		btnCompras.setBounds(0, 492, 281, 44);
 		pMenu.add(btnCompras);
 		
-		JPanel pGeneral = new JPanel();
-		pGeneral.setBackground(new Color(255, 255, 255));
-		pGeneral.setBounds(282, 0, 773, 643);
-		getContentPane().add(pGeneral);
-		pGeneral.setLayout(null);
-		
-		JLabel lblPregunta = new JLabel("\u00BFQU\u00C9 QUIERES HACER?");
-		lblPregunta.setFont(new Font("Tahoma", Font.BOLD, 25));
-		lblPregunta.setBounds(230, 44, 327, 39);
-		pGeneral.add(lblPregunta);
-		
-		JButton btbAñadir = new JButton("New button");
-		btbAñadir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				getContentPane().remove(contentPane);
-				getContentPane().add(aP);
-				repaint();
-			}
-		});
-		btbAñadir.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoA\u00F1adir.png"));
-		btbAñadir.setBounds(149, 164, 191, 191);
-		pGeneral.add(btbAñadir);
-		
-		JButton btnModificar = new JButton("New button");
-		btnModificar.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoModificar.png"));
-		btnModificar.setBounds(455, 164, 191, 191);
-		pGeneral.add(btnModificar);
-		
-		JButton btnConsultar = new JButton("New button");
-		btnConsultar.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoConsultar.png"));
-		btnConsultar.setBounds(149, 405, 191, 191);
-		pGeneral.add(btnConsultar);
-		
-		JButton btnBorrar = new JButton("New button");
-		btnBorrar.setIcon(new ImageIcon("C:\\Users\\loren\\eclipse-workspace\\ProyectoSGE1EV\\img\\iconoBorrar.png"));
-		btnBorrar.setBounds(455, 405, 191, 191);
-		pGeneral.add(btnBorrar);
-		
-		JLabel lblAñadir = new JLabel("A\u00F1adir");
-		lblAñadir.setBounds(230, 135, 56, 16);
-		pGeneral.add(lblAñadir);
-		
-		JLabel lblModificar = new JLabel("Modificar");
-		lblModificar.setBounds(519, 135, 56, 16);
-		pGeneral.add(lblModificar);
-		
-		JLabel lblBorrar = new JLabel("Borrar");
-		lblBorrar.setBounds(534, 376, 56, 16);
-		pGeneral.add(lblBorrar);
-		
-		JLabel lblConsultar = new JLabel("Consultar");
-		lblConsultar.setBounds(215, 376, 56, 16);
-		pGeneral.add(lblConsultar);
-		
+	}
+
+	public void nuevoPanel(JPanel actual){
+		contentPane.removeAll();
+		contentPane.add(actual);
+		contentPane.repaint();
+		contentPane.revalidate();
 	}
 }

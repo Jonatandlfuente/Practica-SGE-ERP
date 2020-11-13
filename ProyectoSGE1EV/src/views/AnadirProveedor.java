@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 
-public class AñadirProveedor extends JPanel {
+public class AnadirProveedor extends JPanel {
 	private JTextField txtEmpresa;
 	private JTextField txtCIF;
 	private JTextField txtDireccion;
@@ -29,7 +29,7 @@ public class AñadirProveedor extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public AñadirProveedor() {
+	public AnadirProveedor() {
 		setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -101,10 +101,10 @@ public class AñadirProveedor extends JPanel {
 		txtTelf_1.setBounds(294, 370, 350, 22);
 		panel.add(txtTelf_1);
 
-		JButton btnAñadirProv = new JButton("A\u00F1adir Proveedor");
-		btnAñadirProv.setBackground(SystemColor.textHighlight);
-		btnAñadirProv.setBounds(183, 497, 388, 25);
-		panel.add(btnAñadirProv);
+		JButton btnAnadirProv = new JButton("A\u00F1adir Proveedor");
+		btnAnadirProv.setBackground(SystemColor.textHighlight);
+		btnAnadirProv.setBounds(183, 497, 388, 25);
+		panel.add(btnAnadirProv);
 
 	}
 
