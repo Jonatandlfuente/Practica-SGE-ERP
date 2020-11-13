@@ -25,9 +25,8 @@ public class Principal extends JFrame{
 	 * Create the frame.
 	 */
 	public Principal() {
-		
 		setTitle("Mushi ERP");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 1073, 690);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.textHighlight);
@@ -59,6 +58,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				MenuLateral ml = new MenuLateral();
 				ml.setVisible(true);
+				dispose();
 			}
 		});
 		btnProveedores.setIcon(new ImageIcon("img\\iconoProveedores.png"));
@@ -70,6 +70,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				MenuLateral ml = new MenuLateral();
 				ml.setVisible(true);
+				dispose();
 			}
 		});
 		btnVentas.setIcon(new ImageIcon("img\\iconoVentas.png"));
@@ -81,6 +82,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				MenuLateral ml = new MenuLateral();
 				ml.setVisible(true);
+				dispose();
 			}
 		});
 		btnProductos.setIcon(new ImageIcon("img\\iconoProductos.png"));
@@ -92,6 +94,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				MenuLateral ml = new MenuLateral();
 				ml.setVisible(true);
+				dispose();
 			}
 		});
 		btnClientes.setIcon(new ImageIcon("img\\iconoClinetes.png"));
@@ -103,6 +106,7 @@ public class Principal extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				MenuLateral ml = new MenuLateral();
 				ml.setVisible(true);
+				dispose();
 			}
 		});
 		btnCompras.setIcon(new ImageIcon("img\\iconoCompras.png"));

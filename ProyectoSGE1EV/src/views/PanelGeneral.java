@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.BorderLayout;
 
 public class PanelGeneral extends JPanel {
 
@@ -14,57 +16,57 @@ public class PanelGeneral extends JPanel {
 	 */
 	public PanelGeneral() {
 		setLayout(null);
+		JPanel f = new JPanel();
+		f.setBounds(0, 0, 1054, 643);
+		add(f);
+		f.setLayout(new BorderLayout(0, 0));
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
-		add(panel);
 		panel.setLayout(null);
+		panel.setBackground(Color.MAGENTA);
+		f.add(panel, BorderLayout.EAST);
 		
 		JLabel label = new JLabel("\u00BFQU\u00C9 QUIERES HACER?");
 		label.setFont(new Font("Tahoma", Font.BOLD, 25));
-		label.setBounds(222, 45, 327, 39);
+		label.setBounds(264, 45, 327, 39);
 		panel.add(label);
 		
-		JLabel lblAnadir = new JLabel("A\u00F1adir");
-		lblAnadir.setBounds(160, 153, 56, 16);
-		panel.add(lblAnadir);
+		JLabel label_1 = new JLabel("A\u00F1adir");
+		label_1.setBounds(219, 130, 56, 16);
+		panel.add(label_1);
 		
-		JButton btnAnadir = new JButton("");
-		btnAnadir.setIcon(new ImageIcon("img\\iconoA\u00F1adir.png"));
-		btnAnadir.setBounds(93, 182, 191, 191);
-		panel.add(btnAnadir);
+		JButton button = new JButton("");
+		button.setBounds(143, 159, 191, 191);
+		panel.add(button);
 		
-		JLabel lblModificar = new JLabel("Modificar");
-		lblModificar.setBounds(516, 153, 56, 16);
-		panel.add(lblModificar);
+		JLabel label_2 = new JLabel("Modificar");
+		label_2.setBounds(580, 130, 56, 16);
+		panel.add(label_2);
 		
-		JButton btnModificar = new JButton("");
-		btnModificar.setIcon(new ImageIcon("img\\iconoModificar.png"));
-		btnModificar.setBounds(445, 182, 191, 191);
-		panel.add(btnModificar);
+		JButton button_1 = new JButton("");
+		button_1.setBounds(509, 159, 191, 191);
+		panel.add(button_1);
 		
-		JLabel lblConsultar = new JLabel("Consultar");
-		lblConsultar.setBounds(160, 408, 56, 16);
-		panel.add(lblConsultar);
+		JLabel label_3 = new JLabel("Consultar");
+		label_3.setBounds(209, 389, 56, 16);
+		panel.add(label_3);
 		
-		JButton btnConsultar = new JButton("");
-		btnConsultar.setIcon(new ImageIcon("img\\iconoConsultar.png"));
-		btnConsultar.setBounds(93, 439, 191, 191);
-		panel.add(btnConsultar);
+		JButton button_2 = new JButton("");
+		button_2.setBounds(143, 418, 191, 191);
+		panel.add(button_2);
 		
-		JLabel lblBorrar = new JLabel("Borrar");
-		lblBorrar.setBounds(516, 408, 56, 16);
-		panel.add(lblBorrar);
+		JLabel label_4 = new JLabel("Borrar");
+		label_4.setBounds(580, 389, 56, 16);
+		panel.add(label_4);
 		
-		JButton btnBorrar = new JButton("");
-		btnBorrar.setIcon(new ImageIcon("img\\iconoBorrar.png"));
-		btnBorrar.setBounds(445, 439, 191, 191);
-		panel.add(btnBorrar);
+		JButton button_3 = new JButton("");
+		button_3.setBounds(509, 418, 191, 191);
+		panel.add(button_3);
 		
-		JLabel lblNewLabel = new JLabel("*");
-		lblNewLabel.setBounds(603, 61, 56, 16);
-		panel.add(lblNewLabel);
+		JLabel label_5 = new JLabel("*");
+		label_5.setBounds(603, 61, 56, 16);
+		panel.add(label_5);
+		setVisible(true);
 
 	}
 

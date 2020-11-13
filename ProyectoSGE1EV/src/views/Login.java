@@ -54,6 +54,7 @@ public class Login extends JFrame {
 	public Login() {
 
 		setTitle("Mushi ERP");
+		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1073, 690);
 		contentPane = new JPanel();
@@ -99,6 +100,7 @@ public class Login extends JFrame {
 				} else {
 					Principal principal = new Principal();
 					principal.setVisible(true);
+					dispose();
 				}
 			}
 		});

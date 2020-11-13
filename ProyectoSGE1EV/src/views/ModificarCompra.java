@@ -3,12 +3,15 @@ package views;
 import javax.swing.JPanel;
 import java.awt.SystemColor;
 import javax.swing.JLabel;
+
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import controllers.BbddControllers;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -16,6 +19,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class ModificarCompra extends JPanel {
 	private JTextField textField;
@@ -25,6 +31,9 @@ public class ModificarCompra extends JPanel {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	private JComboBox cmbComprasid; 
+	private JList list;
+	private DefaultListModel jList = new DefaultListModel();
+
 
 	/**
 	 * Create the panel.
@@ -126,6 +135,18 @@ public class ModificarCompra extends JPanel {
 		});
 		cmbComprasid.setBounds(291, 80, 409, 22);
 		pCompra.add(cmbComprasid);
+		
+		list = new JList();
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				cargaProducto();
+			}
+		});
+		list.setBackground(SystemColor.controlHighlight);
+		list.setBounds(291, 452, 409, 84);
+		pCompra.add(list);
+		list.setModel(jList);
+
 
 	}
 	
@@ -139,6 +160,22 @@ public class ModificarCompra extends JPanel {
 				cmbComprasid.addItem(registro.getObject("id_compra"));
 			}
 		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void cargaProducto() {
+		BbddControllers conection = new BbddControllers();
+		try {
+			Connection conexion = conection.conexionBbdd();
+			Statement consulta = conexion.createStatement();
+			ResultSet registro = consulta.executeQuery("select nombreProducto from productos");
+			while(registro.next()) {
+				registro.toString();
+				list.add((Component) registro.getObject("nombreProducto"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

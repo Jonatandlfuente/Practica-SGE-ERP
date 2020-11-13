@@ -12,6 +12,8 @@ import java.sql.Statement;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
+
+import java.awt.Component;
 import java.awt.Font;
 import javax.swing.JList;
 import javax.swing.JComboBox;
@@ -19,6 +21,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class AnadirVenta extends JPanel {
 
@@ -27,6 +31,8 @@ public class AnadirVenta extends JPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JComboBox cmbPersonal, cmbCliente; 
+	private DefaultListModel jList = new DefaultListModel();
+
 	/**
 	 * Create the panel.
 	 */
@@ -44,11 +50,16 @@ public class AnadirVenta extends JPanel {
 		lblVentas.setBounds(685, 13, 56, 16);
 		panel.add(lblVentas);
 		
-		modelo = new DefaultListModel();
 		lProductos = new JList();
+		lProductos.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				cargaProducto();
+			}
+		});
 		lProductos.setBackground(SystemColor.controlHighlight);
 		lProductos.setBounds(281, 122, 460, 69);
 		panel.add(lProductos);
+		lProductos.setModel(jList);
 		
 		JLabel lblProductos = new JLabel("Productos");
 		lblProductos.setBounds(89, 145, 56, 16);
@@ -107,7 +118,7 @@ public class AnadirVenta extends JPanel {
 
 	}
 	
-	public void cargaProducto() {
+	/*public void cargaProducto() {
 		BbddControllers conection = new BbddControllers();
 		try {
 			Connection conexion = conection.conexionBbdd();
@@ -116,6 +127,22 @@ public class AnadirVenta extends JPanel {
 			while(registro.next()) {
 				modelo.addElement(registro.getObject("nombreProducto"));
 				lProductos.setModel(modelo);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}*/
+	
+	public void cargaProducto() {
+		BbddControllers conection = new BbddControllers();
+		try {
+			Connection conexion = conection.conexionBbdd();
+			Statement consulta = conexion.createStatement();
+			ResultSet registro = consulta.executeQuery("select nombreProducto from productos");
+			while(registro.next()) {
+				registro.toString();
+				lProductos.add((Component) registro.getObject("nombreProducto"));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
