@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import controllers.BbddControllers;
 
@@ -28,9 +29,12 @@ public class AnadirVenta extends JPanel {
 
 	private JList lProductos;
 	private DefaultListModel modelo; 
-	private JTextField textField;
-	private JTextField textField_1;
-	private JComboBox cmbPersonal, cmbCliente; 
+	private JTextField textField, textField_1;
+	private JComboBox cmbPersonal, cmbCliente;
+	private JButton button_1,  btnAadirVenta;
+	private JLabel lblVentas, lblProductos, lblNewLabel, lblNewLabel_1, lblValor, lblFecha;
+	private JScrollPane scrollPaneles;
+	//private PanelGeneralVentas pgVenta = new PanelGeneralVentas();
 	private DefaultListModel jList = new DefaultListModel();
 
 	/**
@@ -41,11 +45,11 @@ public class AnadirVenta extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblVentas = new JLabel("Ventas");
+		lblVentas = new JLabel("Ventas");
 		lblVentas.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVentas.setBounds(685, 13, 56, 16);
 		panel.add(lblVentas);
@@ -61,11 +65,11 @@ public class AnadirVenta extends JPanel {
 		panel.add(lProductos);
 		lProductos.setModel(jList);
 		
-		JLabel lblProductos = new JLabel("Productos");
+		lblProductos = new JLabel("Productos");
 		lblProductos.setBounds(89, 145, 56, 16);
 		panel.add(lblProductos);
 		
-		JLabel lblNewLabel = new JLabel("Personal");
+		lblNewLabel = new JLabel("Personal");
 		lblNewLabel.setBounds(89, 272, 56, 16);
 		panel.add(lblNewLabel);
 		
@@ -78,7 +82,7 @@ public class AnadirVenta extends JPanel {
 		cmbPersonal.setBounds(281, 269, 460, 22);
 		panel.add(cmbPersonal);
 		
-		JLabel lblNewLabel_1 = new JLabel("Cliente");
+		lblNewLabel_1 = new JLabel("Cliente");
 		lblNewLabel_1.setBounds(89, 345, 56, 16);
 		panel.add(lblNewLabel_1);
 		
@@ -91,7 +95,7 @@ public class AnadirVenta extends JPanel {
 		cmbCliente.setBounds(281, 342, 460, 22);
 		panel.add(cmbCliente);
 		
-		JLabel lblValor = new JLabel("Valor");
+		lblValor = new JLabel("Valor");
 		lblValor.setBounds(89, 416, 56, 16);
 		panel.add(lblValor);
 		
@@ -100,7 +104,7 @@ public class AnadirVenta extends JPanel {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblFecha = new JLabel("Fecha");
+		lblFecha = new JLabel("Fecha");
 		lblFecha.setBounds(89, 485, 56, 16);
 		panel.add(lblFecha);
 		
@@ -109,12 +113,25 @@ public class AnadirVenta extends JPanel {
 		textField_1.setBounds(281, 482, 460, 22);
 		panel.add(textField_1);
 		
-		JButton btnAadirVenta = new JButton("A\u00F1adir Venta");
+		btnAadirVenta = new JButton("A\u00F1adir Venta");
 		btnAadirVenta.setBackground(SystemColor.textHighlight);
 		btnAadirVenta.setBounds(203, 583, 388, 25);
 		panel.add(btnAadirVenta);
 		
+		button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgVenta);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 11, 106, 25);
+		panel.add(button_1);
 		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -176,5 +193,23 @@ public class AnadirVenta extends JPanel {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		scrollPaneles.setVisible(false);
+		button_1.setVisible(false);
+		lProductos.setVisible(false);
+		textField.setVisible(false);
+		textField_1.setVisible(false);
+		cmbPersonal.setVisible(false);
+		cmbCliente.setVisible(false);
+		btnAadirVenta.setVisible(false);
+		lblVentas.setVisible(false);
+		lblProductos.setVisible(false);
+		lblNewLabel.setVisible(false);
+		lblNewLabel_1.setVisible(false);
+		lblValor.setVisible(false);
+		lblFecha.setVisible(false);
+		
 	}
 }

@@ -21,6 +21,10 @@ import java.awt.event.ActionEvent;
 public class ConsultarCliente extends JPanel {
 	private JTable tablaClientes;
 	private JComboBox cmbClientes;
+	private JScrollPane scrollPaneles, scrollPane;
+	private JLabel lblConsultarCliente, lblCliente;
+	private JButton button, button_1;
+	//private PanelGeneralClientes pgCliente = new PanelGeneralClientes();
 
 	/**
 	 * Create the panel.
@@ -30,16 +34,16 @@ public class ConsultarCliente extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblConsultarCliente = new JLabel("Consultar Cliente");
+		lblConsultarCliente = new JLabel("Consultar Cliente");
 		lblConsultarCliente.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblConsultarCliente.setBounds(628, 13, 133, 16);
 		panel.add(lblConsultarCliente);
 		
-		JLabel lblCliente = new JLabel("Cliente:");
+		lblCliente = new JLabel("Cliente:");
 		lblCliente.setBounds(150, 135, 60, 16);
 		panel.add(lblCliente);
 		
@@ -52,17 +56,32 @@ public class ConsultarCliente extends JPanel {
 		cmbClientes.setBounds(216, 132, 466, 22);
 		panel.add(cmbClientes);
 		
-		JButton button = new JButton("Consultar");
+		button = new JButton("Consultar");
 		button.setBackground(SystemColor.textHighlight);
 		button.setBounds(334, 179, 170, 25);
 		panel.add(button);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(73, 257, 644, 347);
 		panel.add(scrollPane);
 		
 		tablaClientes = new JTable();
 		scrollPane.setViewportView(tablaClientes);
+		
+		button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgCliente);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 11, 106, 25);
+		panel.add(button_1);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -80,5 +99,15 @@ public class ConsultarCliente extends JPanel {
 			e.printStackTrace();
 		}
 	}
-
+	
+	public void hacerInvisible() {
+		tablaClientes.setVisible(false);
+		cmbClientes.setVisible(false);
+		scrollPaneles.setVisible(false);
+		scrollPane.setVisible(false);
+		lblConsultarCliente.setVisible(false);
+		lblCliente.setVisible(false);
+		button.setVisible(false);
+		button_1.setVisible(false);
+	}
 }

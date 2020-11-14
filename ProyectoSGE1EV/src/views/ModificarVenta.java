@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import controllers.BbddControllers;
 
@@ -28,9 +29,12 @@ public class ModificarVenta extends JPanel {
 
 	private JList lProductos;
 	private DefaultListModel modelo; 
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textField, textField_1;
 	private JComboBox cmbPersonal, cmbCliente, cmbVenta;
+	private JButton button_1,  btnAadirVenta;
+	private JLabel lblVentas, lblProductos, lblNewLabel, lblNewLabel_1, lblValor, lblFecha, lblIdVenta;
+	private JScrollPane scrollPaneles;
+	//private PanelGeneralVentas pgVenta = new PanelGeneralVentas();
 	private DefaultListModel jList = new DefaultListModel();
 
 	
@@ -42,11 +46,11 @@ public class ModificarVenta extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblVentas = new JLabel("Modificar Ventas");
+		lblVentas = new JLabel("Modificar Ventas");
 		lblVentas.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblVentas.setBounds(623, 13, 138, 16);
 		panel.add(lblVentas);
@@ -62,11 +66,11 @@ public class ModificarVenta extends JPanel {
 		panel.add(lProductos);
 		lProductos.setModel(jList);
 		
-		JLabel lblProductos = new JLabel("Productos");
+		lblProductos = new JLabel("Productos");
 		lblProductos.setBounds(89, 196, 56, 16);
 		panel.add(lblProductos);
 		
-		JLabel lblNewLabel = new JLabel("Personal");
+		lblNewLabel = new JLabel("Personal");
 		lblNewLabel.setBounds(89, 272, 56, 16);
 		panel.add(lblNewLabel);
 		
@@ -79,7 +83,7 @@ public class ModificarVenta extends JPanel {
 		cmbPersonal.setBounds(281, 269, 460, 22);
 		panel.add(cmbPersonal);
 		
-		JLabel lblNewLabel_1 = new JLabel("Cliente");
+		lblNewLabel_1 = new JLabel("Cliente");
 		lblNewLabel_1.setBounds(89, 345, 56, 16);
 		panel.add(lblNewLabel_1);
 		
@@ -92,7 +96,7 @@ public class ModificarVenta extends JPanel {
 		cmbCliente.setBounds(281, 342, 460, 22);
 		panel.add(cmbCliente);
 		
-		JLabel lblValor = new JLabel("Valor");
+		lblValor = new JLabel("Valor");
 		lblValor.setBounds(89, 416, 56, 16);
 		panel.add(lblValor);
 		
@@ -101,7 +105,7 @@ public class ModificarVenta extends JPanel {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblFecha = new JLabel("Fecha");
+		lblFecha = new JLabel("Fecha");
 		lblFecha.setBounds(89, 485, 56, 16);
 		panel.add(lblFecha);
 		
@@ -110,12 +114,12 @@ public class ModificarVenta extends JPanel {
 		textField_1.setBounds(281, 482, 460, 22);
 		panel.add(textField_1);
 		
-		JButton btnAadirVenta = new JButton("Modificar Venta");
+		btnAadirVenta = new JButton("Modificar Venta");
 		btnAadirVenta.setBackground(SystemColor.textHighlight);
 		btnAadirVenta.setBounds(203, 583, 388, 25);
 		panel.add(btnAadirVenta);
 		
-		JLabel lblIdVenta = new JLabel("Id_Venta");
+		lblIdVenta = new JLabel("Id_Venta");
 		lblIdVenta.setBounds(89, 119, 56, 16);
 		panel.add(lblIdVenta);
 		
@@ -128,7 +132,20 @@ public class ModificarVenta extends JPanel {
 		cmbVenta.setBounds(281, 116, 460, 22);
 		panel.add(cmbVenta);
 		
+		button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgVenta);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 11, 106, 25);
+		panel.add(button_1);
 		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -205,4 +222,26 @@ public class ModificarVenta extends JPanel {
 			e.printStackTrace();
 		}
 	}
+	
+	public void hacerInvisible() {
+		cmbVenta.setVisible(false);
+		scrollPaneles.setVisible(false);
+		button_1.setVisible(false);
+		lProductos.setVisible(false);
+		textField.setVisible(false);
+		textField_1.setVisible(false);
+		cmbPersonal.setVisible(false);
+		cmbCliente.setVisible(false);
+		cmbVenta.setVisible(false);
+		btnAadirVenta.setVisible(false);
+		lblVentas.setVisible(false);
+		lblProductos.setVisible(false);
+		lblNewLabel.setVisible(false);
+		lblNewLabel_1.setVisible(false);
+		lblValor.setVisible(false);
+		lblFecha.setVisible(false);
+		lblIdVenta.setVisible(false);
+		
+	}
+
 }

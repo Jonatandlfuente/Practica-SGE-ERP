@@ -1,6 +1,7 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import controllers.BbddControllers;
 
@@ -19,6 +20,12 @@ import java.awt.event.ActionEvent;
 public class Borrar extends JPanel {
 
 	private JComboBox cmbBProv, cmbBProd, cmbBCliente, cmbBCompra, cmbBVenta;
+	private JLabel lblNewLabel, lblBProd, lblBProv, lblBCliente, lblBVenta, lblBCompra;
+	private JButton btnBorrarProducto, btnBorrarProveedor, btnBorrarCliente, btnBorrarVenta, btnBorrarCompra, button_1;
+	private JScrollPane scrollPaneles;
+	//private PanelGeneralProv pgProv = new PanelGeneralProv();
+	//PanelGeneral pgProv = new PanelGeneral();
+
 	/**
 	 * Create the panel.
 	 */
@@ -27,16 +34,16 @@ public class Borrar extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Borrar");
+		lblNewLabel = new JLabel("Borrar");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(705, 13, 56, 16);
 		panel.add(lblNewLabel);
 		
-		JLabel lblBProd = new JLabel("Seleccione el producto que desea borrar");
+		lblBProd = new JLabel("Seleccione el producto que desea borrar");
 		lblBProd.setBounds(277, 61, 238, 16);
 		panel.add(lblBProd);
 		
@@ -49,12 +56,12 @@ public class Borrar extends JPanel {
 		cmbBProd.setBounds(175, 90, 431, 22);
 		panel.add(cmbBProd);
 		
-		JButton btnBorrarProducto = new JButton("Borrar Producto");
+		btnBorrarProducto = new JButton("Borrar Producto");
 		btnBorrarProducto.setBackground(SystemColor.textHighlight);
 		btnBorrarProducto.setBounds(300, 125, 170, 25);
 		panel.add(btnBorrarProducto);
 		
-		JLabel lblBProv = new JLabel("Seleccione el proveedor que desea borrar");
+		lblBProv = new JLabel("Seleccione el proveedor que desea borrar");
 		lblBProv.setBounds(277, 177, 254, 16);
 		panel.add(lblBProv);
 		
@@ -67,12 +74,12 @@ public class Borrar extends JPanel {
 		cmbBProv.setBounds(175, 206, 431, 22);
 		panel.add(cmbBProv);
 		
-		JButton btnBorrarProveedor = new JButton("Borrar Proveedor");
+		btnBorrarProveedor = new JButton("Borrar Proveedor");
 		btnBorrarProveedor.setBackground(SystemColor.textHighlight);
 		btnBorrarProveedor.setBounds(300, 241, 170, 25);
 		panel.add(btnBorrarProveedor);
 		
-		JLabel lblBCliente = new JLabel("Seleccione el cliente que desea borrar");
+		lblBCliente = new JLabel("Seleccione el cliente que desea borrar");
 		lblBCliente.setBounds(277, 290, 254, 16);
 		panel.add(lblBCliente);
 		
@@ -85,12 +92,12 @@ public class Borrar extends JPanel {
 		cmbBCliente.setBounds(175, 319, 431, 22);
 		panel.add(cmbBCliente);
 		
-		JButton btnBorrarCliente = new JButton("Borrar Cliente");
+		btnBorrarCliente = new JButton("Borrar Cliente");
 		btnBorrarCliente.setBackground(SystemColor.textHighlight);
 		btnBorrarCliente.setBounds(300, 354, 170, 25);
 		panel.add(btnBorrarCliente);
 		
-		JLabel lblBVenta = new JLabel("Seleccione la venta que desea borrar");
+		lblBVenta = new JLabel("Seleccione la venta que desea borrar");
 		lblBVenta.setBounds(277, 411, 254, 16);
 		panel.add(lblBVenta);
 		
@@ -103,12 +110,12 @@ public class Borrar extends JPanel {
 		cmbBVenta.setBounds(175, 440, 431, 22);
 		panel.add(cmbBVenta);
 		
-		JButton btnBorrarVenta = new JButton("Borrar Venta");
+		btnBorrarVenta = new JButton("Borrar Venta");
 		btnBorrarVenta.setBackground(SystemColor.textHighlight);
 		btnBorrarVenta.setBounds(300, 475, 170, 25);
 		panel.add(btnBorrarVenta);
 		
-		JLabel lblBCompra = new JLabel("Seleccione la compra que desea borrar");
+		lblBCompra = new JLabel("Seleccione la compra que desea borrar");
 		lblBCompra.setBounds(277, 522, 254, 16);
 		panel.add(lblBCompra);
 		
@@ -121,10 +128,25 @@ public class Borrar extends JPanel {
 		cmbBCompra.setBounds(175, 551, 431, 22);
 		panel.add(cmbBCompra);
 		
-		JButton btnBorrarCompra = new JButton("Borrar Compra");
+		btnBorrarCompra = new JButton("Borrar Compra");
 		btnBorrarCompra.setBackground(SystemColor.textHighlight);
 		btnBorrarCompra.setBounds(300, 586, 170, 25);
 		panel.add(btnBorrarCompra);
+		
+		button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgProv);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 11, 106, 25);
+		panel.add(button_1);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -198,5 +220,26 @@ public class Borrar extends JPanel {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		scrollPaneles.setVisible(false);
+		button_1.setVisible(false);
+		lblNewLabel.setVisible(false);
+		cmbBProv.setVisible(false);
+		cmbBProd.setVisible(false);
+		cmbBCliente.setVisible(false);
+		cmbBCompra.setVisible(false);
+		cmbBVenta.setVisible(false);
+		lblBProd.setVisible(false);
+		lblBProv.setVisible(false);
+		lblBCliente.setVisible(false);
+		lblBVenta.setVisible(false);
+		lblBCompra.setVisible(false);
+		btnBorrarProducto.setVisible(false);
+		btnBorrarProveedor.setVisible(false);
+		btnBorrarCliente.setVisible(false);
+		btnBorrarVenta.setVisible(false);
+		btnBorrarCompra.setVisible(false);
 	}
 }

@@ -1,21 +1,22 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.SystemColor;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AnadirCliente extends JPanel {
-	private JTextField txtNombre;
-	private JTextField txtApellidos;
-	private JTextField txtDNI;
-	private JTextField txtProvincia;
-	private JTextField txtTelf;
-	private JTextField txtTelf_1;
-	private JTextField txtDireccion;
-	private JTextField txtEmail;
+	private JTextField txtNombre, txtApellidos, txtDNI, txtProvincia, txtTelf, txtTelf_1, txtDireccion, txtEmail;
+	private JScrollPane scrollPaneles;
+	private JLabel lblCliente, lblNombre, lblApellidos, lblDni,lblProvincia, lblTelfono, lblTelfono_1, lblDireccin, lblEmail; 
+	private JButton button, btnAadirCliente;
+	//private PanelGeneralClientes pgCliente = new PanelGeneralClientes();
 
 	/**
 	 * Create the panel.
@@ -25,16 +26,16 @@ public class AnadirCliente extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblCliente = new JLabel("Clientes");
+		lblCliente = new JLabel("Clientes");
 		lblCliente.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblCliente.setBounds(682, 13, 79, 16);
 		panel.add(lblCliente);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(113, 116, 56, 16);
 		panel.add(lblNombre);
 		
@@ -43,7 +44,7 @@ public class AnadirCliente extends JPanel {
 		panel.add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JLabel lblApellidos = new JLabel("Apellidos");
+		lblApellidos = new JLabel("Apellidos");
 		lblApellidos.setBounds(113, 169, 56, 16);
 		panel.add(lblApellidos);
 		
@@ -52,7 +53,7 @@ public class AnadirCliente extends JPanel {
 		txtApellidos.setBounds(251, 166, 388, 22);
 		panel.add(txtApellidos);
 		
-		JLabel lblDni = new JLabel("DNI");
+		lblDni = new JLabel("DNI");
 		lblDni.setBounds(113, 220, 56, 16);
 		panel.add(lblDni);
 		
@@ -61,7 +62,7 @@ public class AnadirCliente extends JPanel {
 		txtDNI.setBounds(251, 217, 388, 22);
 		panel.add(txtDNI);
 		
-		JLabel lblProvincia = new JLabel("Provincia");
+		lblProvincia = new JLabel("Provincia");
 		lblProvincia.setBounds(113, 274, 56, 16);
 		panel.add(lblProvincia);
 		
@@ -70,7 +71,7 @@ public class AnadirCliente extends JPanel {
 		txtProvincia.setBounds(251, 271, 388, 22);
 		panel.add(txtProvincia);
 		
-		JLabel lblTelfono = new JLabel("Tel\u00E9fono");
+		lblTelfono = new JLabel("Tel\u00E9fono");
 		lblTelfono.setBounds(113, 325, 56, 16);
 		panel.add(lblTelfono);
 		
@@ -79,7 +80,7 @@ public class AnadirCliente extends JPanel {
 		txtTelf.setBounds(251, 322, 388, 22);
 		panel.add(txtTelf);
 		
-		JLabel lblTelfono_1 = new JLabel("Tel\u00E9fono 2");
+		lblTelfono_1 = new JLabel("Tel\u00E9fono 2");
 		lblTelfono_1.setBounds(113, 378, 73, 16);
 		panel.add(lblTelfono_1);
 		
@@ -88,7 +89,7 @@ public class AnadirCliente extends JPanel {
 		txtTelf_1.setBounds(251, 375, 388, 22);
 		panel.add(txtTelf_1);
 		
-		JLabel lblDireccin = new JLabel("Direcci\u00F3n");
+		lblDireccin = new JLabel("Direcci\u00F3n");
 		lblDireccin.setBounds(113, 435, 73, 16);
 		panel.add(lblDireccin);
 		
@@ -97,7 +98,7 @@ public class AnadirCliente extends JPanel {
 		txtDireccion.setBounds(251, 432, 388, 22);
 		panel.add(txtDireccion);
 		
-		JLabel lblEmail = new JLabel("Email");
+		lblEmail = new JLabel("Email");
 		lblEmail.setBounds(113, 488, 73, 16);
 		panel.add(lblEmail);
 		
@@ -106,11 +107,49 @@ public class AnadirCliente extends JPanel {
 		txtEmail.setBounds(251, 485, 388, 22);
 		panel.add(txtEmail);
 		
-		JButton btnAadirCliente = new JButton("A\u00F1adir Cliente");
+		btnAadirCliente = new JButton("A\u00F1adir Cliente");
 		btnAadirCliente.setBackground(SystemColor.textHighlight);
 		btnAadirCliente.setBounds(187, 573, 388, 25);
 		panel.add(btnAadirCliente);
+		
+		button = new JButton("< ATR\u00C1S");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgCliente);
+				hacerInvisible();
+			}
+		});
+		button.setBackground(SystemColor.textHighlight);
+		button.setBounds(12, 11, 106, 25);
+		panel.add(button);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
+	}
+	
+	public void hacerInvisible() {
+		scrollPaneles.setVisible(false);;
+		button.setVisible(false);
+		txtNombre.setVisible(false);
+		txtApellidos.setVisible(false);
+		txtDNI.setVisible(false);
+		txtProvincia.setVisible(false);
+		txtTelf.setVisible(false);
+		txtTelf_1.setVisible(false);
+		txtDireccion.setVisible(false);
+		txtEmail.setVisible(false);
+		lblCliente.setVisible(false);
+		lblNombre.setVisible(false);
+		lblApellidos.setVisible(false);
+		lblDni.setVisible(false);
+		lblProvincia.setVisible(false);
+		lblTelfono.setVisible(false);
+		lblTelfono_1.setVisible(false);
+		lblDireccin.setVisible(false);
+		lblEmail.setVisible(false);
+		btnAadirCliente.setVisible(false);
 	}
 
 }

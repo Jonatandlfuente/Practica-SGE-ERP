@@ -1,6 +1,8 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.SystemColor;
 import javax.swing.JLabel;
 
@@ -24,15 +26,15 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
 public class ModificarCompra extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JComboBox cmbComprasid; 
-	private JList list;
+	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5;
+	private JComboBox cmbPersonal;
+	private JScrollPane scrollPaneles;
+	private JList list; 
+	private JLabel lblNewLabel, lblNewLabel_1, lblFechaSolicitado, lblEstado, lblFechaEntrega, lblFechaRequerido, lblFechaAnulado, lblValor, label, lblIdCompra;
+	private JButton btnAadirCompra, button;
+	private JComboBox comboBox, cmbComprasid;
 	private DefaultListModel jList = new DefaultListModel();
+	//private PanelGeneralCompras pgCompra = new PanelGeneralCompras();
 
 
 	/**
@@ -43,24 +45,24 @@ public class ModificarCompra extends JPanel {
 		
 		JPanel pCompra = new JPanel();
 		pCompra.setBackground(SystemColor.text);
-		pCompra.setBounds(282, 0, 772, 643);
+		pCompra.setBounds(0, 0, 772, 643);
 		add(pCompra);
 		pCompra.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Modificar Compras");
+		lblNewLabel = new JLabel("Modificar Compras");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel.setBounds(604, 13, 156, 16);
 		pCompra.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Personal");
+		lblNewLabel_1 = new JLabel("Personal");
 		lblNewLabel_1.setBounds(142, 130, 56, 16);
 		pCompra.add(lblNewLabel_1);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBounds(291, 127, 409, 22);
 		pCompra.add(comboBox);
 		
-		JLabel lblFechaSolicitado = new JLabel("Fecha solicitado");
+		lblFechaSolicitado = new JLabel("Fecha solicitado");
 		lblFechaSolicitado.setBounds(142, 184, 91, 16);
 		pCompra.add(lblFechaSolicitado);
 		
@@ -69,7 +71,7 @@ public class ModificarCompra extends JPanel {
 		pCompra.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblEstado = new JLabel("Estado");
+		lblEstado = new JLabel("Estado");
 		lblEstado.setBounds(142, 231, 91, 16);
 		pCompra.add(lblEstado);
 		
@@ -78,11 +80,11 @@ public class ModificarCompra extends JPanel {
 		pCompra.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblFechaEntrega = new JLabel("Fecha entrega");
+		lblFechaEntrega = new JLabel("Fecha entrega");
 		lblFechaEntrega.setBounds(142, 276, 91, 16);
 		pCompra.add(lblFechaEntrega);
 		
-		JLabel lblFechaRequerido = new JLabel("Fecha requerido");
+		lblFechaRequerido = new JLabel("Fecha requerido");
 		lblFechaRequerido.setBounds(142, 318, 108, 16);
 		pCompra.add(lblFechaRequerido);
 		
@@ -96,7 +98,7 @@ public class ModificarCompra extends JPanel {
 		textField_3.setBounds(291, 315, 409, 22);
 		pCompra.add(textField_3);
 		
-		JLabel lblFechaAnulado = new JLabel("Fecha anulado");
+		lblFechaAnulado = new JLabel("Fecha anulado");
 		lblFechaAnulado.setBounds(142, 364, 91, 16);
 		pCompra.add(lblFechaAnulado);
 		
@@ -110,20 +112,20 @@ public class ModificarCompra extends JPanel {
 		textField_5.setBounds(291, 405, 409, 22);
 		pCompra.add(textField_5);
 		
-		JLabel lblValor = new JLabel("Valor");
+		lblValor = new JLabel("Valor");
 		lblValor.setBounds(142, 408, 91, 16);
 		pCompra.add(lblValor);
 		
-		JLabel label = new JLabel("Productos");
+		label = new JLabel("Productos");
 		label.setBounds(142, 453, 56, 16);
 		pCompra.add(label);
 		
-		JButton btnAadirCompra = new JButton("A\u00F1adir Compra");
+		btnAadirCompra = new JButton("A\u00F1adir Compra");
 		btnAadirCompra.setBackground(SystemColor.textHighlight);
 		btnAadirCompra.setBounds(216, 605, 388, 25);
 		pCompra.add(btnAadirCompra);
 		
-		JLabel lblIdCompra = new JLabel("Id_Compra");
+		lblIdCompra = new JLabel("Id_Compra");
 		lblIdCompra.setBounds(142, 83, 73, 16);
 		pCompra.add(lblIdCompra);
 		
@@ -146,6 +148,21 @@ public class ModificarCompra extends JPanel {
 		list.setBounds(291, 452, 409, 84);
 		pCompra.add(list);
 		list.setModel(jList);
+		
+		button = new JButton("< ATR\u00C1S");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgCompra);
+				hacerInvisible();
+			}
+		});
+		button.setBackground(SystemColor.textHighlight);
+		button.setBounds(12, 11, 106, 25);
+		pCompra.add(button);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		add(scrollPaneles);
 
 
 	}
@@ -178,6 +195,31 @@ public class ModificarCompra extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		scrollPaneles.setVisible(false);;
+		button.setVisible(false);
+		textField.setVisible(false);
+		textField_1.setVisible(false);
+		textField_2.setVisible(false);
+		textField_3.setVisible(false);
+		textField_4.setVisible(false);
+		textField_5.setVisible(false);
+		cmbPersonal.setVisible(false);
+		list.setVisible(false);
+		lblNewLabel.setVisible(false);
+		lblNewLabel_1.setVisible(false);
+		lblFechaSolicitado.setVisible(false);
+		lblEstado.setVisible(false);
+		lblFechaEntrega.setVisible(false);
+		lblFechaRequerido.setVisible(false);
+		lblFechaAnulado.setVisible(false);
+		lblValor.setVisible(false);
+		label.setVisible(false);
+		btnAadirCompra.setVisible(false);
+		lblIdCompra.setVisible(false);
+		cmbComprasid.setVisible(false);
 	}
 
 }

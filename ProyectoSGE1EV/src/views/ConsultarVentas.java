@@ -20,7 +20,11 @@ import java.awt.event.ActionEvent;
 
 public class ConsultarVentas extends JPanel {
 	private JTable tablaVentas;
-	private JComboBox cmbVenta; 
+	private JComboBox cmbVenta;
+	private JScrollPane scrollPane, scrollPaneles;
+	private JLabel lblConsultarVenta, lblVenta;
+	private JButton button, button_1;
+	//private PanelGeneralVentas pgVenta = new PanelGeneralVentas();
 
 	/**
 	 * Create the panel.
@@ -30,7 +34,7 @@ public class ConsultarVentas extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -63,6 +67,21 @@ public class ConsultarVentas extends JPanel {
 		
 		tablaVentas = new JTable();
 		scrollPane.setViewportView(tablaVentas);
+		
+		JButton button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgVenta);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 11, 106, 25);
+		panel.add(button_1);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -78,6 +97,17 @@ public class ConsultarVentas extends JPanel {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		tablaVentas.setVisible(false);
+		cmbVenta.setVisible(false);
+		scrollPaneles.setVisible(false);
+		scrollPane.setVisible(false);
+		lblConsultarVenta.setVisible(false);
+		lblVenta.setVisible(false);
+		button.setVisible(false);
+		button_1.setVisible(false);
 	}
 
 }

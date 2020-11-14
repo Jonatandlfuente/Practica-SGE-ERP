@@ -21,6 +21,10 @@ import java.awt.event.ActionEvent;
 public class ConsultarCompras extends JPanel {
 	private JTable tablaCompras;
 	private JComboBox cmbCompra; 
+	private JScrollPane scrollPane, scrollPaneles;
+	private JLabel lblConsultarCompra, lblCompra;
+	private JButton button, button_1;
+	//private PanelGeneralCompras pgCompra = new PanelGeneralCompras();
 
 	/**
 	 * Create the panel.
@@ -30,16 +34,16 @@ public class ConsultarCompras extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblConsultarCompra = new JLabel("Consultar Compra");
+		lblConsultarCompra = new JLabel("Consultar Compra");
 		lblConsultarCompra.setBounds(614, 13, 147, 22);
 		lblConsultarCompra.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		panel.add(lblConsultarCompra);
 		
-		JLabel lblCompra = new JLabel("Compra:");
+		lblCompra = new JLabel("Compra:");
 		lblCompra.setBounds(108, 138, 60, 16);
 		panel.add(lblCompra);
 		
@@ -57,12 +61,27 @@ public class ConsultarCompras extends JPanel {
 		button.setBounds(288, 187, 170, 25);
 		panel.add(button);
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		scrollPane.setBounds(72, 257, 644, 347);
 		panel.add(scrollPane);
 		
 		tablaCompras = new JTable();
 		scrollPane.setViewportView(tablaCompras);
+		
+		JButton button_1 = new JButton("< ATR\u00C1S");
+		button_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgCompra);
+				hacerInvisible();
+			}
+		});
+		button_1.setBackground(SystemColor.textHighlight);
+		button_1.setBounds(12, 14, 106, 25);
+		panel.add(button_1);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -78,6 +97,17 @@ public class ConsultarCompras extends JPanel {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		tablaCompras.setVisible(false);
+		cmbCompra.setVisible(false);
+		scrollPaneles.setVisible(false);
+		scrollPane.setVisible(false);
+		lblConsultarCompra.setVisible(false);
+		lblCompra.setVisible(false);
+		button.setVisible(false);
+		button_1.setVisible(false);
 	}
 
 }

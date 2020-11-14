@@ -22,6 +22,10 @@ import java.awt.event.ActionEvent;
 public class ConsultarProveedor extends JPanel {
 	private JTable tablaProveedores;
 	private JComboBox cmbProveedor; 
+	private JScrollPane scrollPane, scrollPaneles;
+	private JLabel lblConsultarProveedor, lblProveedor;
+	private JButton button, button_1;
+	//private PanelGeneralProv pgProv = new PanelGeneralProv();
 
 	/**
 	 * Create the panel.
@@ -31,7 +35,7 @@ public class ConsultarProveedor extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.text);
-		panel.setBounds(282, 0, 773, 643);
+		panel.setBounds(0, 0, 773, 643);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -64,6 +68,21 @@ public class ConsultarProveedor extends JPanel {
 		
 		tablaProveedores = new JTable();
 		scrollPane.setViewportView(tablaProveedores);
+		
+		JButton button_2 = new JButton("< ATR\u00C1S");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgProv);
+				hacerInvisible();
+			}
+		});
+		button_2.setBackground(SystemColor.textHighlight);
+		button_2.setBounds(12, 11, 106, 25);
+		panel.add(button_2);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		panel.add(scrollPaneles);
 
 	}
 	
@@ -80,5 +99,16 @@ public class ConsultarProveedor extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		tablaProveedores.setVisible(false);
+		cmbProveedor.setVisible(false);
+		scrollPaneles.setVisible(false);
+		scrollPane.setVisible(false);
+		lblConsultarProveedor.setVisible(false);
+		lblProveedor.setVisible(false);
+		button.setVisible(false);
+		button_1.setVisible(false);
 	}
 }

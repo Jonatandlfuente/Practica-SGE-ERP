@@ -1,6 +1,8 @@
 package views;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+
 import java.awt.SystemColor;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -19,10 +21,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class ModificarProducto extends JPanel {
-	private JTextField txtNombre;
-	private JTextField txtDescripcion;
-	private JTextField txtStock;
+	private JTextField txtNombre, txtDescripcion, txtStock;
 	private JComboBox cmbProducto, cmbMarca, cmbProveedor;
+	private JLabel lblProducto, lblNombreProd, lblNombre, lblMarca, lblDescripcin, lblStock, lblProveedor;
+	private JButton button, btnAadirProducto;
+	private JScrollPane scrollPaneles;
+	//private PanelGeneralProd pgProd = new PanelGeneralProd();
 
 	/**
 	 * Create the panel.
@@ -32,16 +36,16 @@ public class ModificarProducto extends JPanel {
 		
 		JPanel pProducto = new JPanel();
 		pProducto.setBackground(SystemColor.text);
-		pProducto.setBounds(282, 0, 773, 643);
+		pProducto.setBounds(0, 0, 773, 643);
 		add(pProducto);
 		pProducto.setLayout(null);
 		
-		JLabel lblProducto = new JLabel("Modificar Productos");
+		lblProducto = new JLabel("Modificar Productos");
 		lblProducto.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblProducto.setBounds(588, 13, 173, 16);
 		pProducto.add(lblProducto);
 		
-		JLabel lblNombreProd = new JLabel("Producto");
+		lblNombreProd = new JLabel("Producto");
 		lblNombreProd.setBounds(144, 106, 56, 16);
 		pProducto.add(lblNombreProd);
 		
@@ -59,11 +63,11 @@ public class ModificarProducto extends JPanel {
 		cmbProducto.setBounds(300, 103, 308, 22);
 		pProducto.add(cmbProducto);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(144, 158, 56, 16);
 		pProducto.add(lblNombre);
 		
-		JLabel lblDescripcin = new JLabel("Descripci\u00F3n");
+		lblDescripcin = new JLabel("Descripci\u00F3n");
 		lblDescripcin.setBounds(144, 215, 88, 16);
 		pProducto.add(lblDescripcin);
 		
@@ -72,11 +76,11 @@ public class ModificarProducto extends JPanel {
 		txtDescripcion.setBounds(300, 212, 308, 22);
 		pProducto.add(txtDescripcion);
 		
-		JLabel lblStock = new JLabel("Stock");
+		lblStock = new JLabel("Stock");
 		lblStock.setBounds(144, 268, 56, 16);
 		pProducto.add(lblStock);
 		
-		JLabel lblMarca = new JLabel("Marca");
+		lblMarca = new JLabel("Marca");
 		lblMarca.setBounds(144, 324, 56, 16);
 		pProducto.add(lblMarca);
 		
@@ -89,7 +93,7 @@ public class ModificarProducto extends JPanel {
 		cmbMarca.setBounds(300, 321, 308, 22);
 		pProducto.add(cmbMarca);
 		
-		JLabel lblProveedor = new JLabel("Proveedor");
+		lblProveedor = new JLabel("Proveedor");
 		lblProveedor.setBounds(144, 382, 88, 16);
 		pProducto.add(lblProveedor);
 		
@@ -107,10 +111,25 @@ public class ModificarProducto extends JPanel {
 		pProducto.add(txtStock);
 		txtStock.setColumns(10);
 		
-		JButton btnAadirProducto = new JButton("Modificar Producto");
+		btnAadirProducto = new JButton("Modificar Producto");
 		btnAadirProducto.setBackground(SystemColor.textHighlight);
 		btnAadirProducto.setBounds(200, 532, 388, 25);
 		pProducto.add(btnAadirProducto);
+		
+		button = new JButton("< ATR\u00C1S");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//scrollPaneles.setViewportView(pgProd);
+				hacerInvisible();
+			}
+		});
+		button.setBackground(SystemColor.textHighlight);
+		button.setBounds(12, 11, 106, 25);
+		add(button);
+		
+		scrollPaneles = new JScrollPane();
+		scrollPaneles.setBounds(0, 0, 773, 643);
+		add(scrollPaneles);
 
 	}
 	
@@ -157,6 +176,26 @@ public class ModificarProducto extends JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void hacerInvisible() {
+		scrollPaneles.setVisible(false);
+		button.setVisible(false);
+		btnAadirProducto.setVisible(false);
+		txtNombre.setVisible(false);
+		txtDescripcion.setVisible(false);
+		txtStock.setVisible(false);
+		cmbProducto.setVisible(false);
+		cmbMarca.setVisible(false);
+		cmbProveedor.setVisible(false);
+		lblProducto.setVisible(false);
+		lblNombreProd.setVisible(false);
+		lblNombre.setVisible(false);
+		lblMarca.setVisible(false);
+		lblDescripcin.setVisible(false);
+		lblStock.setVisible(false);
+		lblProveedor.setVisible(false);
+		
 	}
 
 }
