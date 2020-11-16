@@ -23,12 +23,13 @@ import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JPasswordField;
 
 public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsername;
-	private JTextField txtPassword;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -53,6 +54,7 @@ public class Login extends JFrame {
 	public Login() {
 
 		setTitle("Mushi ERP");
+		this.setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1073, 690);
 		contentPane = new JPanel();
@@ -66,24 +68,20 @@ public class Login extends JFrame {
 		contentPane.add(pLogin, "name_132265509906200");
 		pLogin.setLayout(null);
 
-		JLabel label = new JLabel("");
-		label.setIcon(
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(
 				new ImageIcon("img\\logo_preview_rev_1.png"));
-		label.setBounds(403, 86, 200, 185);
-		pLogin.add(label);
+		lblLogo.setBounds(403, 86, 200, 185);
+		pLogin.add(lblLogo);
 
 		txtUsername = new JTextField();
 		txtUsername.setBounds(387, 317, 266, 33);
 		pLogin.add(txtUsername);
 		txtUsername.setColumns(10);
 
-		txtPassword = new JTextField();
-		txtPassword.setColumns(10);
-		txtPassword.setBounds(387, 367, 266, 33);
-		pLogin.add(txtPassword);
-
 		JButton btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
 		btnIniciarSesin.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 
 				boolean comprobacion = false;
@@ -93,36 +91,37 @@ public class Login extends JFrame {
 				FileControllers registro = new FileControllers();
 				comprobacion = false;
 				user = txtUsername.getText();
-				pass = txtPassword.getText();
+				pass = passwordField.getText();
 				comprobacion = registro.leerFichero(user, pass);
 
 				if (comprobacion != true) {
 					txtUsername.setText("");
-					txtPassword.setText("");
+					passwordField.setText("");
 				} else {
 					Principal principal = new Principal();
 					principal.setVisible(true);
+					dispose();
 				}
 			}
 		});
 		btnIniciarSesin.setBounds(429, 469, 182, 25);
 		pLogin.add(btnIniciarSesin);
 		
-		JLabel lblNewLabel = new JLabel("USER");
-		lblNewLabel.setForeground(Color.WHITE);
-		lblNewLabel.setBounds(312, 326, 46, 14);
-		pLogin.add(lblNewLabel);
+		JLabel lblUser = new JLabel("");
+		lblUser.setIcon(new ImageIcon("img\\usuario.png"));
+		lblUser.setForeground(Color.WHITE);
+		lblUser.setBounds(362, 317, 16, 37);
+		pLogin.add(lblUser);
 		
-		JLabel lblPass = new JLabel("PASS");
+		JLabel lblPass = new JLabel("");
+		lblPass.setIcon(new ImageIcon("img\\contrasena.png"));
 		lblPass.setForeground(Color.WHITE);
-		lblPass.setBounds(312, 376, 46, 14);
+		lblPass.setBounds(357, 367, 32, 47);
 		pLogin.add(lblPass);
 		
-		JLabel lblNewLabel_1 = new JLabel("LOGIN");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setBounds(225, 232, 164, 33);
-		pLogin.add(lblNewLabel_1);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(387, 374, 266, 36);
+		pLogin.add(passwordField);
 	}
 
 	public void nuevoPanel(JPanel panelActual) {
