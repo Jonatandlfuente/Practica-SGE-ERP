@@ -38,11 +38,25 @@ public class FileControllers {
 			}
 			if (comprobacionUsuario) {
 				JOptionPane.showMessageDialog(null,
-						"Correct login!!!");
+						"Correct login!!!","Action successfully!!",JOptionPane.INFORMATION_MESSAGE);
 			} else {
 				JOptionPane.showMessageDialog(null,
 						"There is some empty field or try to enter a correct user and pass", "Warning",
 						JOptionPane.WARNING_MESSAGE);
+				/*JOptionPane.showMessageDialog(null,
+						"There is some empty field or try to enter a correct user and pass", "Warning",
+						JOptionPane.DEFAULT_OPTION);
+				JOptionPane.showMessageDialog(null,
+						"There is some empty field or try to enter a correct user and pass", "Warning",
+						JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"There is some empty field or try to enter a correct user and pass", "Warning",
+						JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,
+						"There is some empty field or try to enter a correct user and pass", "Warning",
+						JOptionPane.QUESTION_MESSAGE);*/
+			
+				
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
